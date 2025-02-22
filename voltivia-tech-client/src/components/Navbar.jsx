@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-<header className="fixed top-4 w-[calc(100%-2rem)] mx-4 flex items-center justify-between px-5 py-2 backdrop-blur-lg bg-gray-900/10 rounded-xl">
+<header className="fixed top-4 w-[calc(100%-2rem)] mx-4 flex items-center justify-between px-5 py-2 backdrop-blur-lg bg-gray-900/10 rounded-xl z-10">
       {/* Logo */}
       <div className="flex items-center">
         <img src={logo} alt="SunVault Logo" className="h-10 w-auto" />
