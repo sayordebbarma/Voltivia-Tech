@@ -5,8 +5,8 @@ import Lenis from "@studio-freight/lenis";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HeroSection from "./pages/Home/HeroSection";
-import AboutSection from "./pages/Home/AboutSection";
-import ProductSection from "./pages/Home/ProductSection";
+import ChooseUsSection from "./pages/Home/ChooseUsSection";
+import IndustriesWeServeSection from "./pages/Home/IndustriesWeServeSection";
 
 export default function App() {
   useEffect(() => {
@@ -36,8 +36,8 @@ export default function App() {
         {/* Empty Space to Push About Section Initially Down */}
         <div className="h-screen"></div> 
 
-        <AboutSection />
-        <ProductSection />
+        <ChooseUsSection />
+        <IndustriesWeServeSection />
         <Footer />
       </div>
     </Router>
