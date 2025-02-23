@@ -93,7 +93,7 @@ export default function IndustriesWeServe() {
       <div className='relative max-w-6xl mx-auto text-left w-full'>
         {/* Section Title */}
         <div ref={textRef} className='mb-16'>
-          <h2 className='text-5xl font-extrabold text-green-400 drop-shadow-lg border-l-8 border-green-400 pl-4'>
+          <h2 className='text-5xl font-extrabold text-amber-400 drop-shadow-lg border-l-8 border-amber-400 pl-4'>
             Industries We Serve
           </h2>
           <p className='text-lg mt-4 text-gray-300 max-w-2xl'>
