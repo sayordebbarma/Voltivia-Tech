@@ -12,7 +12,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-3xl">
         <h1 className="text-4xl md:text-6xl font-extrabold">
-          Innovating Energy for a Limitless Future
+          Innovating <span className="text-amber-300 italic">Energy</span> for a Limitless Future
         </h1>
         <p className="text-lg md:text-xl mt-4 font-medium">
           Redefining Power with Smart, High-Performance Solutions—Ensuring Uninterrupted Energy Anytime, Anywhere.

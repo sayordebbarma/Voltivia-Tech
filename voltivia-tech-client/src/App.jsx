@@ -1,17 +1,21 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import HeroSection from "./pages/Home/HeroSection";
 import AboutSection from "./pages/Home/AboutSection";
-
+import ProductSection from "./pages/Home/ProductSection";
 
 export default function App() {
   useEffect(() => {
+    // Force scroll to start at Hero Section
+    window.scrollTo(0, 0);
+
     const lenis = new Lenis({
-      duration: 1.2, // Controls smoothness
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
     });
 
@@ -25,12 +29,17 @@ export default function App() {
 
   return (
     <Router>
-    <div className="bg-white min-h-screen min-w-screen">
-      <Navbar />
-      <HeroSection />
-      <div className="h-screen"></div> {/* Extra space to allow scroll trigger */}
-      <AboutSection />
-    </div>
+      <div className="bg-white min-h-screen min-w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+        <Navbar />
+        <HeroSection />
+        
+        {/* Empty Space to Push About Section Initially Down */}
+        <div className="h-screen"></div> 
+
+        <AboutSection />
+        <ProductSection />
+        <Footer />
+      </div>
     </Router>
   );
 }

@@ -13,7 +13,7 @@ export default function Navbar() {
       </div>
 
       {/* Navigation Links */}
-      <nav className="hidden md:flex space-x-12 text-white text-lg font-medium">
+      <nav className="hidden md:flex space-x-12 text-white text-sm font-normal">
         {["Home", "Products", "About Us", "Contact Us"].map((item) => (
           <a key={item} href="#" className="hover:text-yellow-400 transition">
             {item}
@@ -22,7 +22,7 @@ export default function Navbar() {
       </nav>
 
       {/* Contact Us Button */}
-      <button className="flex items-center gap-2 px-6 py-3 bg-yellow-400 text-lg font-semibold rounded-xl hover:bg-yellow-500 transition">
+      <button className="flex items-center gap-2 px-6 py-3 bg-yellow-400 text-sm font-semibold rounded-xl hover:bg-yellow-500 transition">
         Enquire Now
       </button>
 
