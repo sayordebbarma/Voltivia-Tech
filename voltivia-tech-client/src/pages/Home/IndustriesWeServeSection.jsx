@@ -1,11 +1,47 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Factory, Building, Server, HeartPulse, GraduationCap, Bolt } from 'lucide-react';
+import Industries from '../../assets/industries1.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function IndustriesWeServeSection() {
+const industries = [
+  {
+    name: 'Manufacturing',
+    description:
+      'Reliable energy solutions to keep production running smoothly.',
+    image: Industries,
+  },
+  {
+    name: 'Commercial Buildings',
+    description: 'Smart energy management for offices, malls, and high-rises.',
+    image: Industries,
+  },
+  {
+    name: 'Data Centers',
+    description: 'High-efficiency power backup to prevent downtime.',
+    image: Industries,
+  },
+  {
+    name: 'Healthcare',
+    description:
+      'Ensuring uninterrupted power for hospitals and medical centers.',
+    image: Industries,
+  },
+  {
+    name: 'Education',
+    description:
+      'Reliable power for schools, universities, and research facilities.',
+    image: Industries,
+  },
+  {
+    name: 'Renewable Energy',
+    description: 'Powering the future with sustainable energy solutions.',
+    image: Industries,
+  },
+];
+
+export default function IndustriesWeServe() {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const cardRefs = useRef([]);
@@ -38,10 +74,7 @@ export default function IndustriesWeServeSection() {
           duration: 1,
           delay: i * 0.2,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-          },
+          scrollTrigger: { trigger: card, start: 'top 90%' },
         }
       );
     });
@@ -50,110 +83,44 @@ export default function IndustriesWeServeSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-gray-950 flex flex-col items-center text-white px-6 py-20 overflow-hidden"
+      className='relative w-full min-h-screen bg-gray-950 flex flex-col items-center text-white px-6 py-20 overflow-hidden'
     >
       {/* Background Glow Elements */}
-      <div className="absolute top-10 left-20 w-40 h-40 bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-green-400 opacity-20 blur-3xl rounded-full"></div>
+      <div className='absolute top-10 left-20 w-40 h-40 bg-blue-500 opacity-20 blur-3xl rounded-full'></div>
+      <div className='absolute bottom-20 right-10 w-32 h-32 bg-green-400 opacity-20 blur-3xl rounded-full'></div>
 
       {/* Content Wrapper */}
-      <div className="relative max-w-6xl mx-auto text-left">
+      <div className='relative max-w-6xl mx-auto text-left w-full'>
         {/* Section Title */}
-        <div ref={textRef} className="mb-16">
-          <h2 className="text-5xl font-extrabold text-green-400 drop-shadow-lg border-l-8 border-green-400 pl-4">
+        <div ref={textRef} className='mb-16'>
+          <h2 className='text-5xl font-extrabold text-green-400 drop-shadow-lg border-l-8 border-green-400 pl-4'>
             Industries We Serve
           </h2>
-          <p className="text-lg mt-4 text-gray-300 max-w-2xl">
-            Powering businesses across multiple industries with smart and reliable energy solutions.
+          <p className='text-lg mt-4 text-gray-300 max-w-2xl'>
+            Powering businesses across multiple industries with smart and
+            reliable energy solutions.
           </p>
         </div>
+      </div>
 
-        {/* Industries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl">
-          {/* Industry 1: Manufacturing */}
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl'>
+        {industries.map((industry, index) => (
           <div
-            ref={(el) => (cardRefs.current[0] = el)}
-            className="bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition duration-300 hover:bg-gray-700"
+            key={index}
+            ref={(el) => (cardRefs.current[index] = el)}
+            className='relative w-full h-120 overflow-hidden shadow-lg '
           >
-            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-teal-600 shadow-md">
-              <Factory className="text-white w-10 h-10" />
+            <img
+              src={industry.image}
+              alt={industry.name}
+              className='absolute inset-0 w-full h-full object-cover'
+            />
+            <div className='absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/70 to-transparent p-6'>
+              <h3 className='text-xl font-bold text-white'>{industry.name}</h3>
+              <p className='text-gray-300 mt-1'>{industry.description}</p>
             </div>
-            <h3 className="text-xl font-semibold mt-6">Manufacturing</h3>
-            <p className="text-gray-400 mt-2">
-              Reliable energy solutions to keep production running smoothly.
-            </p>
           </div>
-
-          {/* Industry 2: Commercial Buildings */}
-          <div
-            ref={(el) => (cardRefs.current[1] = el)}
-            className="bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition duration-300 hover:bg-gray-700"
-          >
-            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 shadow-md">
-              <Building className="text-white w-10 h-10" />
-            </div>
-            <h3 className="text-xl font-semibold mt-6">Commercial Buildings</h3>
-            <p className="text-gray-400 mt-2">
-              Smart energy management for offices, malls, and high-rises.
-            </p>
-          </div>
-
-          {/* Industry 3: Data Centers */}
-          <div
-            ref={(el) => (cardRefs.current[2] = el)}
-            className="bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition duration-300 hover:bg-gray-700"
-          >
-            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-600 shadow-md">
-              <Server className="text-white w-10 h-10" />
-            </div>
-            <h3 className="text-xl font-semibold mt-6">Data Centers</h3>
-            <p className="text-gray-400 mt-2">
-              High-efficiency power backup to prevent downtime.
-            </p>
-          </div>
-
-          {/* Industry 4: Healthcare */}
-          <div
-            ref={(el) => (cardRefs.current[3] = el)}
-            className="bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition duration-300 hover:bg-gray-700"
-          >
-            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-red-500 to-orange-600 shadow-md">
-              <HeartPulse className="text-white w-10 h-10" />
-            </div>
-            <h3 className="text-xl font-semibold mt-6">Healthcare</h3>
-            <p className="text-gray-400 mt-2">
-              Ensuring uninterrupted power for hospitals and medical centers.
-            </p>
-          </div>
-
-          {/* Industry 5: Education */}
-          <div
-            ref={(el) => (cardRefs.current[4] = el)}
-            className="bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition duration-300 hover:bg-gray-700"
-          >
-            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-500 to-amber-600 shadow-md">
-              <GraduationCap className="text-white w-10 h-10" />
-            </div>
-            <h3 className="text-xl font-semibold mt-6">Education</h3>
-            <p className="text-gray-400 mt-2">
-              Reliable power for schools, universities, and research facilities.
-            </p>
-          </div>
-
-          {/* Industry 6: Renewable Energy */}
-          <div
-            ref={(el) => (cardRefs.current[5] = el)}
-            className="bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition duration-300 hover:bg-gray-700"
-          >
-            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-blue-600 shadow-md">
-              <Bolt className="text-white w-10 h-10" />
-            </div>
-            <h3 className="text-xl font-semibold mt-6">Renewable Energy</h3>
-            <p className="text-gray-400 mt-2">
-              Powering the future with sustainable energy solutions.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
