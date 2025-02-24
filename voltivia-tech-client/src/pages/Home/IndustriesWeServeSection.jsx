@@ -110,11 +110,13 @@ export default function IndustriesWeServe() {
             ref={(el) => (cardRefs.current[index] = el)}
             className='relative w-full h-120 overflow-hidden shadow-lg '
           >
-            <img
-              src={industry.image}
-              alt={industry.name}
-              className='absolute inset-0 w-full h-full object-cover'
-            />
+            <div className='relative w-full h-full overflow-hidden'>
+              <img
+                src={industry.image}
+                alt={industry.name}
+                className='absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-105'
+              />
+            </div>
             <div className='absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/70 to-transparent p-6'>
               <h3 className='text-xl font-bold text-white'>{industry.name}</h3>
               <p className='text-gray-300 mt-1'>{industry.description}</p>

@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import HeroSection from "./pages/Home/HeroSection";
 import ChooseUsSection from "./pages/Home/ChooseUsSection";
 import IndustriesWeServeSection from "./pages/Home/IndustriesWeServeSection";
+import ConnectWithUsSection from './pages/Home/ConnectWithUsSection';
 
 export default function App() {
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function App() {
 
         <ChooseUsSection />
         <IndustriesWeServeSection />
+        <ConnectWithUsSection />
         <Footer />
       </div>
     </Router>
