@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import HeroSection from "./pages/Home/HeroSection";
-import ChooseUsSection from "./pages/Home/ChooseUsSection";
-import IndustriesWeServeSection from "./pages/Home/IndustriesWeServeSection";
-import ConnectWithUsSection from './pages/Home/ConnectWithUsSection';
+import Home from "./pages/Home/HomePage";
+import ContactUs from "./pages/ContactUs/ContactUsPage";
+// import AboutUs from "./pages/AboutUs";
 
 export default function App() {
   useEffect(() => {
@@ -31,15 +30,17 @@ export default function App() {
   return (
     <Router>
       <div className="bg-white min-h-screen min-w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+        {/* Universal Navbar */}
         <Navbar />
-        <HeroSection />
-        
-        {/* Empty Space to Push About Section Initially Down */}
-        <div className="h-screen"></div> 
 
-        <ChooseUsSection />
-        <IndustriesWeServeSection />
-        <ConnectWithUsSection />
+        {/* Routing for Different Pages */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/about" element={<AboutUs />} /> */}
+          <Route path="/contact" element={<ContactUs />} />
+        </Routes>
+
+        {/* Universal Footer */}
         <Footer />
       </div>
     </Router>

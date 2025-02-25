@@ -73,7 +73,7 @@ export default function ConnectWithUsSection() {
       >
         {/* Contact Us Button */}
         <a
-          href='/contact'
+          href='tel:+1234567890'
           className='px-6 py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow-md hover:bg-blue-600 transition duration-300'
         >
           Let's talk!
@@ -81,7 +81,7 @@ export default function ConnectWithUsSection() {
 
         {/* Call Us Button */}
         <a
-          href='tel:+1234567890'
+          href='/contact'
           className='px-6 py-3 bg-amber-400 text-gray-900 font-bold text-lg rounded-lg shadow-md hover:bg-amber-500 transition duration-300'
         >
           Send a message
