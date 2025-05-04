@@ -50,7 +50,6 @@ export default function ConnectWithUsSection() {
     >
       {/* Background Gradient Glows */}
       <div className='absolute top-10 left-20 w-40 h-40 bg-blue-500 opacity-20 blur-3xl rounded-full'></div>
-      <div className='absolute bottom-20 right-10 w-32 h-32 bg-amber-400 opacity-20 blur-3xl rounded-full'></div>
 
       {/* Content Wrapper */}
       <div className='relative max-w-6xl mx-auto text-left w-full'>

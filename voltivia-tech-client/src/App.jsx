@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home/HomePage";
 import ContactUs from "./pages/ContactUs/ContactUsPage";
-// import AboutUs from "./pages/AboutUs";
+import AboutUs from "./pages/AboutUs/AboutUsPage";
 
 export default function App() {
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function App() {
         {/* Routing for Different Pages */}
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<AboutUs />} /> */}
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
         </Routes>
 
