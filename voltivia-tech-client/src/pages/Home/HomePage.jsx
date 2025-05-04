@@ -2,7 +2,7 @@ import HeroSection from "./HeroSection";
 import ChooseUsSection from "./ChooseUsSection";
 import ProductsWeOffer from "./ProductsWeOffer";
 import IndustriesWeServeSection from "./IndustriesWeServeSection";
-import ConnectWithUsSection from "./ConnectWithUsSection";
+import ContactUsSection from "./ContactUsSection";
 
 export default function HomePage() {
   return (
@@ -15,7 +15,7 @@ export default function HomePage() {
       <ChooseUsSection />
       <ProductsWeOffer />
       <IndustriesWeServeSection />
-      <ConnectWithUsSection />
+      <ContactUsSection />
     </main>
   );
 }
