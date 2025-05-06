@@ -64,6 +64,7 @@ export default function ProductsWeOffer() {
   return (
     <section
       ref={sectionRef}
+      id="products"
       className="relative w-full min-h-screen bg-gray-950 flex flex-col items-center text-white px-6 py-20 overflow-hidden"
     >
       {/* Background Glow Elements */}

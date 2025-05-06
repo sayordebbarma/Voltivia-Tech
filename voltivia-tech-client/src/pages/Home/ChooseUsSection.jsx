@@ -50,6 +50,7 @@ export default function WhyChooseUs() {
   return (
     <section
       ref={sectionRef}
+      id="choose-us"
       className="relative w-full min-h-screen bg-gray-950 flex flex-col items-center text-white px-6 py-20 overflow-hidden"
     >
       {/* Background Gradient Glows */}

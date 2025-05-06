@@ -179,7 +179,10 @@ export default function IndustriesWeServe() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen bg-gray-950 flex flex-col items-center text-white px-6 py-20 overflow-hidden">
+    <section
+    ref={sectionRef}
+    id="industries"
+     className="relative w-full min-h-screen bg-gray-950 flex flex-col items-center text-white px-6 py-20 overflow-hidden">
       {/* Background Glow Elements */}
       <div className="absolute top-10 left-20 w-40 h-40 bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
 

@@ -7,11 +7,12 @@ import ContactUsSection from "./ContactUsSection";
 export default function HomePage() {
   return (
     <main>
-      <HeroSection />
+      <section id="hero">
+        <HeroSection />
+      </section>
       
       {/* Empty Space to Push About Section Initially Down */}
       <div className="h-screen"></div> 
-
       <ChooseUsSection />
       <ProductsWeOffer />
       <IndustriesWeServeSection />

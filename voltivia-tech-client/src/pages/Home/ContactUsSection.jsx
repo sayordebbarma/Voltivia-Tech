@@ -44,6 +44,7 @@ export default function ContactUsSection() {
   return (
     <section
       ref={sectionRef}
+      id="contact"
       className='relative w-full flex flex-col items-center text-white px-6 py-20 min-h-[60vh] bg-gray-950 overflow-hidden'
     >
       {/* Gradient Glows */}
@@ -66,22 +67,22 @@ export default function ContactUsSection() {
       {/* Main Content */}
       <div
         ref={contentRef}
-        className='max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4'
+        className='max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start'
       >
         {/* Left: Contact Form */}
         <form className='space-y-6'>
           <input
             type='text'
-            placeholder='Your name'
+            placeholder='Name'
             className='w-full bg-white/10 backdrop-blur-md p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400'
           />
           <input
             type='email'
-            placeholder='Your email'
+            placeholder='Email'
             className='w-full bg-white/10 backdrop-blur-md p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400'
           />
           <textarea
-          placeholder='Your message'
+          placeholder='Message'
           className='w-full h-48 resize-none bg-white/10 backdrop-blur-md p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400'
           ></textarea>
           <button

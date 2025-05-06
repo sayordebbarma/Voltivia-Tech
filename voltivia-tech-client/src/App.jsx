@@ -36,8 +36,6 @@ export default function App() {
         {/* Routing for Different Pages */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
         </Routes>
 
         {/* Universal Footer */}
