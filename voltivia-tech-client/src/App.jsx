@@ -5,8 +5,6 @@ import Lenis from "@studio-freight/lenis";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home/HomePage";
-import ContactUs from "./pages/ContactUs/ContactUsPage";
-import AboutUs from "./pages/AboutUs/AboutUsPage";
 
 export default function App() {
   useEffect(() => {
