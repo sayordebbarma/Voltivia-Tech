@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import logo from "../assets/logo2.png";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,12 +59,16 @@ export default function Navbar() {
 
   return (
     <header ref={headerRef} className="fixed top-4 w-[calc(100%-2rem)] mx-4 flex items-center justify-between px-5 py-2 backdrop-blur-lg bg-white/15 border border-white/20 shadow-lg rounded-xl z-50">
-      {/* Logo */}
-      <div className="flex items-center">
-        <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
-          <img src={logo} alt="SunVault Logo" className="h-10 w-auto transition hover:scale-105" />
-        </a>
-      </div>
+          {/* Logo */}
+          <div className="flex items-center">
+            <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
+              <img 
+                src={logo} 
+                alt="SunVault Logo" 
+                className="h-10 w-auto transition hover:scale-105 brightness-110" 
+              />
+            </a>
+          </div>
 
       {/* Navigation Links */}
       <nav className="hidden md:flex space-x-12 text-white text-sm font-normal">
@@ -84,17 +89,17 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Contact Us Button */}
+      {/* Enquire Now Button */}
       <button 
         onClick={() => scrollToSection('contact')}
-        className="flex items-center gap-2 px-6 py-3 bg-yellow-400 text-sm font-semibold rounded-xl hover:bg-yellow-500 transition"
+        className="hidden sm:flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-yellow-400 text-sm font-semibold rounded-xl hover:bg-yellow-500 transition"
       >
         Enquire Now
       </button>
 
       {/* Mobile Menu Button */}
-      <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white text-2xl">
-        ☰
+      <button onClick={() => setIsOpen(!isOpen)} className="sm:hidden text-white">
+        <Menu size={24} />
       </button>
 
       {/* Mobile Menu */}

@@ -104,13 +104,13 @@ export default function ContactUsSection() {
             <div>
               <p className='text-xs uppercase text-gray-400'>Address</p>
               <p className='font-semibold'>
-                191189, St. Petersburg, <br /> Moika River Embankment 67-69
+                Hno. 138, Lane-6, Chumoukedima, <br/>Aoyim, Nagaland 797115
               </p>
             </div>
           </div>
           <div className='w-full h-64 overflow-hidden rounded-2xl border border-white/20 shadow-lg'>
             <iframe
-              src='https://maps.google.com/maps?q=St.%20Petersburg,%20Moika%20River%20Embankment%2067-69&t=&z=13&ie=UTF8&iwloc=&output=embed'
+              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3590.5928690027067!2d93.806399!3d25.849957699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374609f19d0a1ca1%3A0x5b8684b101462c86!2sVoltivia%20Tech!5e0!3m2!1sen!2sin!4v1747573381690!5m2!1sen!2sin'
               className='w-full h-full'
               allowFullScreen
               loading='lazy'
