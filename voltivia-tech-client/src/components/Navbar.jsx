@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Lenis from 'lenis';
 import gsap from 'gsap';
-import logo from "../assets/logo2.png";
 import { Menu } from "lucide-react";
+import logo from "../assets/logo/logo2.png";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,20 +59,20 @@ export default function Navbar() {
   };
 
   return (
-    <header ref={headerRef} className="fixed top-4 w-[calc(100%-2rem)] mx-4 flex items-center justify-between px-5 py-2 backdrop-blur-lg bg-white/15 border border-white/20 shadow-lg rounded-xl z-50">
+    <header ref={headerRef} className="fixed top-4 w-[calc(100%-2rem)] mx-4 flex items-center justify-between px-5 py-2 backdrop-blur-md bg-black/30 border border-white/10 shadow-lg rounded-xl z-50">
           {/* Logo */}
           <div className="flex items-center">
             <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
               <img 
                 src={logo} 
                 alt="SunVault Logo" 
-                className="h-10 w-auto transition hover:scale-105 brightness-110" 
+                className="h-10 w-auto transition hover:scale-102" 
               />
             </a>
           </div>
 
       {/* Navigation Links */}
-      <nav className="hidden md:flex space-x-12 text-white text-sm font-normal">
+      <nav className="hidden md:flex space-x-8 lg:space-x-12 text-white text-sm font-normal">
         <button onClick={() => scrollToSection('hero')} className="hover:text-yellow-400 transition">
           Home
         </button>
@@ -92,7 +93,7 @@ export default function Navbar() {
       {/* Enquire Now Button */}
       <button 
         onClick={() => scrollToSection('contact')}
-        className="hidden sm:flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-yellow-400 text-sm font-semibold rounded-xl hover:bg-yellow-500 transition"
+        className="hidden sm:flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-amber-400 text-sm font-semibold rounded-xl hover:bg-amber-500 transition"
       >
         Enquire Now
       </button>
@@ -104,7 +105,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white/15 backdrop-blur-lg border border-white/20 shadow-lg py-5 flex flex-col items-center space-y-6 text-white text-lg rounded-xl">
+        <div className="absolute top-16 left-0 w-full bg-black/90 backdrop-blur-md border border-white/10 shadow-lg py-5 flex flex-col items-center space-y-6 text-white text-lg rounded-xl">
           <button onClick={() => scrollToSection('hero')} className="hover:text-yellow-400 transition">
             Home
           </button>

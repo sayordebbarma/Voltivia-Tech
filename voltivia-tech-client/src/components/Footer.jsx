@@ -1,6 +1,6 @@
 import bgImage from '../assets/hero-bg1.jpeg';
 import { Home, ShoppingBag, Info, Phone } from 'lucide-react';
-import logo from '../assets/logo2.png';
+import logo from '../assets/logo/logo2.png';
 
 export default function Footer() {
   const scrollToSection = (sectionId) => {
@@ -77,8 +77,8 @@ export default function Footer() {
               <h3 className='text-xl font-semibold text-yellow-400'>Contact Info</h3>
               <div className='text-white space-y-3 text-center md:text-right'>
                 <p>Hno. 138, Lane-6, Chumoukedima, <br/>Aoyim, Nagaland 797115</p>
-                <p>Phone: +91-6909-727365</p>
-                <p>Email: info@voltivia.com</p>
+                <p>Phone: +91-7005-521094</p>
+                <p>Email: info@voltiviatech.com</p>
               </div>
             </div>
           </div>
