@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const lenisRef = useRef(null);
   const headerRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     // GSAP Animation for navbar
@@ -45,6 +46,41 @@ export default function Navbar() {
       lenisRef.current.destroy();
     };
   }, []);
+
+  // Mobile menu animation
+  useEffect(() => {
+    if (mobileMenuRef.current) {
+      if (isOpen) {
+        gsap.fromTo(
+          mobileMenuRef.current,
+          {
+            y: -20,
+            opacity: 0,
+            display: 'none'
+          },
+          {
+            y: 0,
+            opacity: 1,
+            display: 'flex',
+            duration: 0.3,
+            ease: "power2.out"
+          }
+        );
+      } else {
+        gsap.to(mobileMenuRef.current, {
+          y: -20,
+          opacity: 0,
+          duration: 0.2,
+          ease: "power2.in",
+          onComplete: () => {
+            if (mobileMenuRef.current) {
+              mobileMenuRef.current.style.display = 'none';
+            }
+          }
+        });
+      }
+    }
+  }, [isOpen]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -104,25 +140,27 @@ export default function Navbar() {
       </button>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-black/90 backdrop-blur-md border border-white/10 shadow-lg py-5 flex flex-col items-center space-y-6 text-white text-lg rounded-xl">
-          <button onClick={() => scrollToSection('hero')} className="hover:text-yellow-400 transition">
-            Home
-          </button>
-          <button onClick={() => scrollToSection('choose-us')} className="hover:text-yellow-400 transition">
-            Why Choose Us
-          </button>
-          <button onClick={() => scrollToSection('products')} className="hover:text-yellow-400 transition">
-            Products
-          </button>
-          <button onClick={() => scrollToSection('industries')} className="hover:text-yellow-400 transition">
-            Industries
-          </button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-yellow-400 transition">
-            Contact
-          </button>
-        </div>
-      )}
+      <div 
+        ref={mobileMenuRef}
+        className="absolute top-16 left-0 w-full bg-black/90 backdrop-blur-md border border-white/10 shadow-lg py-5 flex flex-col items-center space-y-6 text-white text-lg rounded-xl"
+        style={{ display: 'none' }}
+      >
+        <button onClick={() => scrollToSection('hero')} className="hover:text-yellow-400 transition">
+          Home
+        </button>
+        <button onClick={() => scrollToSection('choose-us')} className="hover:text-yellow-400 transition">
+          Why Choose Us
+        </button>
+        <button onClick={() => scrollToSection('products')} className="hover:text-yellow-400 transition">
+          Products
+        </button>
+        <button onClick={() => scrollToSection('industries')} className="hover:text-yellow-400 transition">
+          Industries
+        </button>
+        <button onClick={() => scrollToSection('contact')} className="hover:text-yellow-400 transition">
+          Contact
+        </button>
+      </div>
     </header>
   );
 }
