@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEmail } from '../../hooks/useEmail';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -8,6 +9,12 @@ export default function ContactUsSection() {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const contentRef = useRef(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const { sendEmail, isLoading, error, success } = useEmail();
 
   useEffect(() => {
     gsap.fromTo(
@@ -41,6 +48,22 @@ export default function ContactUsSection() {
     );
   }, []);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await sendEmail(formData);
+    if (success) {
+      setFormData({ name: '', email: '', message: '' });
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -69,27 +92,46 @@ export default function ContactUsSection() {
         className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-start'
       >
         {/* Left: Contact Form */}
-        <form className='space-y-4 sm:space-y-6'>
+        <form onSubmit={handleSubmit} className='space-y-4 sm:space-y-6'>
           <input
             type='text'
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
             placeholder='Name'
+            required
             className='w-full bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm sm:text-base'
           />
           <input
             type='email'
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
             placeholder='Email'
+            required
             className='w-full bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm sm:text-base'
           />
           <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
             placeholder='Message'
+            required
             className='w-full h-32 sm:h-48 resize-none bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm sm:text-base'
           ></textarea>
           <button
             type='submit'
-            className='w-full sm:w-auto bg-amber-400 text-gray-900 font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-amber-500 transition text-sm sm:text-base'
+            disabled={isLoading}
+            className='w-full sm:w-auto bg-amber-400 text-gray-900 font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-amber-500 transition text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed'
           >
-            Send Message
+            {isLoading ? 'Sending...' : 'Send Message'}
           </button>
+          {error && (
+            <p className='text-red-400 text-sm mt-2'>{error}</p>
+          )}
+          {success && (
+            <p className='text-green-400 text-sm mt-2'>Message sent successfully!</p>
+          )}
         </form>
 
         {/* Right: Map + Info */}
